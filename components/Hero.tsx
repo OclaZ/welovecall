@@ -6,12 +6,35 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="min-h-[100vh] mt-[-100px] flex  items-start sm:items-center justify-center pt-12 sm:pt-0 px-4 overflow-hidden bg-white">
-      <div className="container mx-auto">
+    <section className="relative min-h-[100vh]    flex items-start sm:items-center justify-center pt-12 sm:pt-0 px-4 overflow-hidden bg-white">
+      {/* Grid Background */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="w-full h-full relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent z-10" />
+          <div className="w-full h-full grid grid-cols-10 grid-rows-10 bg-opacity-10 bg-gray-300">
+            {Array.from({ length: 90 }).map((_, i) => (
+              <div key={i} className="border border-gray-200" />
+            ))}
+          </div>
+        </div>
+        <div
+          className="absolute inset-40"
+          style={{
+            background: `radial-gradient(
+      circle at center,
+      rgba(0, 255, 100, 0.3) 0%,       
+      rgba(0, 255, 100, 0.15) 25%,     
+      rgba(0, 255, 100, 0) 50%       
+    )`,
+          }}
+        />
+      </div>
+
+      <div className="container   mx-auto relative z-10 mb-[100px]">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center justify-center">
           {/* Text Content */}
           <div className="space-y-4 sm:space-y-6 text-center lg:text-left w-full">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl  leading-tight py-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight py-4">
               Générez des Leads Immobiliers Qualifiés avec{" "}
               <span className="text-[#00E072] font-bold relative inline-block py-4">
                 WeLoveCall
