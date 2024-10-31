@@ -5,9 +5,9 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = {};
+type Props = Record<string, unknown>;
 
-const Header = (props: Props) => {
+const Header = (_props: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ const Header = (props: Props) => {
             Accueil
           </Link>
           <Link href="#" className="text-gray-600 hover:text-green-400 text-xl">
-            L'agence
+            L&apos;agence
           </Link>
           <Link href="#" className="text-gray-600 hover:text-green-400 text-xl">
             Services
@@ -75,7 +75,7 @@ const Header = (props: Props) => {
                 className="text-lg text-gray-600 hover:text-emerald-500"
                 onClick={() => setIsMenuOpen(false)}
               >
-                L'agence
+                L&apos;agence
               </Link>
               <Link
                 href="#"
