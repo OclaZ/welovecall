@@ -6,31 +6,36 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100vh]    flex items-start sm:items-center justify-center pt-12 sm:pt-0 px-4 overflow-hidden bg-white">
+    <section className="relative min-h-[100vh] flex items-start sm:items-center justify-center pt-12 sm:pt-0 px-4 overflow-hidden bg-white">
       {/* Grid Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="w-full h-full relative">
           <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent z-10" />
-          <div className="w-full h-full grid grid-cols-10 grid-rows-10 bg-opacity-10 bg-gray-300">
-            {Array.from({ length: 90 }).map((_, i) => (
-              <div key={i} className="border border-gray-200" />
+          {/* Updated grid with responsive classes */}
+          <div className="w-full h-full grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 auto-rows-fr bg-opacity-10 bg-gray-300">
+            {/* Generate grid items based on screen size */}
+            {Array.from({ length: 100 }).map((_, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 transition-colors duration-300 hover:bg-gray-50"
+              />
             ))}
           </div>
         </div>
         <div
-          className="absolute inset-40"
+          className="absolute inset-10 sm:inset-20 md:inset-30 lg:inset-40 opacity-50"
           style={{
             background: `radial-gradient(
-      circle at center,
-      rgba(0, 255, 100, 0.3) 0%,       
-      rgba(0, 255, 100, 0.15) 25%,     
-      rgba(0, 255, 100, 0) 50%       
-    )`,
+              circle at center,
+              rgba(0, 255, 100, 0.3) 0%,       
+              rgba(0, 255, 100, 0.15) 25%,     
+              rgba(0, 255, 100, 0) 50%       
+            )`,
           }}
         />
       </div>
 
-      <div className="container   mx-auto relative z-10 mb-[100px]">
+      <div className="container mx-auto my-0 relative z-10 mb-[100px]">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center justify-center">
           {/* Text Content */}
           <div className="space-y-4 sm:space-y-6 text-center lg:text-left w-full">
@@ -184,7 +189,7 @@ export default function Hero() {
                   alt="Decorative Arrow"
                   width={100}
                   height={100}
-                  className="scale-x-[-1] "
+                  className="scale-x-[-1]"
                 />
               </motion.div>
             </div>
