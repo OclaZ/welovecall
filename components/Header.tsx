@@ -5,9 +5,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-type Props = Record<string, unknown>;
-
-const Header = (_props: Props) => {
+const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -19,7 +17,6 @@ const Header = (_props: Props) => {
             alt="WeLoveCall Logo"
             width={98}
             height={40}
-            className=""
           />
         </Link>
         {/* Mobile menu button */}
