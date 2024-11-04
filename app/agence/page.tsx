@@ -133,38 +133,21 @@ export default function AgencyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-4 py-8 bg-gradient-to-b from-gray-50 to-white ">
-        <div className="relative overflow-hidden rounded-2xl bg-[#00E072]">
-          {/* Gradient Overlays */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `
-              radial-gradient(circle at 30% 50%, rgba(0, 224, 114, 0.7) 0%, transparent 70%),
-              radial-gradient(circle at 70% 50%, rgba(0, 192, 98, 0.7) 0%, transparent 70%)
-            `,
-            }}
-          />
+      <section className="py-20 bg-gradient-to-r from-[#00E072] to-[#00C062] overflow-hidden relative">
+        {/* Large circular gradient overlays */}
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white rounded-full opacity-20"></div>
+          <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white rounded-full opacity-10"></div>
+          <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white rounded-full opacity-15"></div>
+        </div>
 
-          <div className="relative px-6 py-16 md:py-20 text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 max-w-3xl mx-auto"
-            >
-              Envie de passer à l&apos;étape supérieure ?
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Button className="bg-black text-white hover:bg-gray-900 text-base md:text-lg px-6 py-2 h-auto rounded">
-                Prendre un RDV gratuit
-              </Button>
-            </motion.div>
-          </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8">
+            Envie de passer à l&apos;étape supérieure ?
+          </h2>
+          <Button className="bg-black text-white hover:bg-gray-900 text-base md:text-lg px-6 py-3 h-auto">
+            Prendre un RDV gratuit
+          </Button>
         </div>
       </section>
       <Footer />
