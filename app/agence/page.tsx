@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
+import AgencyHeroWithStats from "@/components/herowithstats";
 
 export default function AgencyPage() {
   const stats = [
@@ -17,110 +18,10 @@ export default function AgencyPage() {
   return (
     <main className="bg-white">
       <Header />
-
-      {/* Hero Section with Team Members */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <div className="relative max-w-3xl mx-auto">
-            {/* Center large profile */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="relative w-32 h-32 mx-auto mb-8"
-            >
-              <Image
-                src="/placeholder.svg"
-                alt="Team Member"
-                fill
-                className="rounded-full object-cover"
-              />
-              <div className="absolute inset-0 rounded-full border-2 border-[#00E072]" />
-            </motion.div>
-
-            {/* Floating profiles */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute top-0 left-1/4 w-24 h-24"
-            >
-              <Image
-                src="/placeholder.svg"
-                alt="Team Member"
-                fill
-                className="rounded-full object-cover"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="absolute bottom-0 right-1/4 w-24 h-24"
-            >
-              <Image
-                src="/placeholder.svg"
-                alt="Team Member"
-                fill
-                className="rounded-full object-cover"
-              />
-            </motion.div>
-
-            {/* Decorative elements */}
-            <motion.div
-              animate={{
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute top-1/4 right-0 w-8 h-8 text-[#00E072]"
-            >
-              ✦
-            </motion.div>
-
-            <motion.div
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="absolute bottom-1/4 left-0 w-8 h-8 text-[#00E072]"
-            >
-              ★
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-[#00E072] mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <AgencyHeroWithStats stats={stats} />
 
       {/* Who We Are Section */}
-      <section className="py-16">
+      <section className="py-16  bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -140,7 +41,7 @@ export default function AgencyPage() {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/placeholder.svg"
+                src="/agence/Pages-Interested-Image.png"
                 alt="Team Meeting"
                 fill
                 className="rounded-lg object-cover"
@@ -151,12 +52,12 @@ export default function AgencyPage() {
       </section>
 
       {/* Our Mission Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16  bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px]">
               <Image
-                src="/placeholder.svg"
+                src="/agence/office1.png"
                 alt="Office Space"
                 fill
                 className="rounded-lg object-cover"
@@ -177,7 +78,7 @@ export default function AgencyPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16">
+      <section className="py-16  bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -221,7 +122,7 @@ export default function AgencyPage() {
             </div>
             <div className="relative h-[400px]">
               <Image
-                src="/placeholder.svg"
+                src="/agence/office2.png"
                 alt="Office Space"
                 fill
                 className="rounded-lg object-cover"
@@ -232,14 +133,38 @@ export default function AgencyPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-[#00E072] to-[#00C062]">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-white mb-8">
-            Envie de passer à l&apos;étape supérieure ?
-          </h2>
-          <Button className="bg-black text-white hover:bg-gray-900">
-            Prendre un RDV gratuit
-          </Button>
+      <section className="container mx-auto px-4 py-8 bg-gradient-to-b from-gray-50 to-white ">
+        <div className="relative overflow-hidden rounded-2xl bg-[#00E072]">
+          {/* Gradient Overlays */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `
+              radial-gradient(circle at 30% 50%, rgba(0, 224, 114, 0.7) 0%, transparent 70%),
+              radial-gradient(circle at 70% 50%, rgba(0, 192, 98, 0.7) 0%, transparent 70%)
+            `,
+            }}
+          />
+
+          <div className="relative px-6 py-16 md:py-20 text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 max-w-3xl mx-auto"
+            >
+              Envie de passer à l&apos;étape supérieure ?
+            </motion.h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Button className="bg-black text-white hover:bg-gray-900 text-base md:text-lg px-6 py-2 h-auto rounded">
+                Prendre un RDV gratuit
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
       <Footer />

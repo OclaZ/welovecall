@@ -32,7 +32,10 @@ const Header = () => {
         </button>
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <Link href="#" className="text-gray-600 hover:text-green-400 text-xl">
+          <Link
+            href="/."
+            className="text-gray-600 hover:text-green-400 text-xl"
+          >
             Accueil
           </Link>
           <Link
